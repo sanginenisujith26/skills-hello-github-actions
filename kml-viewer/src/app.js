@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import KmlUploader from "./KmlUploader";
 import SummaryTable from "./SummaryTable";
 import DetailTable from "./DetailTable";

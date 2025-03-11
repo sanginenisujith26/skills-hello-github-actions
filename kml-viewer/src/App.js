@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import KmlUploader from "./KmlUploader";
+import SummaryTable from "./SummaryTable";
+import DetailTable from "./DetailTable";
+import MapView from "./MapView";
 
 function App() {
   const [file, setFile] = useState(null);

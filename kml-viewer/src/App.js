@@ -1,24 +1,20 @@
 import React from "react";
 import logo from './logo.svg';
 import './App.css';
+import KmlUploader from "./KmlUploader";
+import SummaryTable from "./SummaryTable";
+import DetailTable from "./DetailTable";
+import MapView from "./MapView";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>KML File Viewer</h2>
+      <KmlUploader onKmlParsed={setGeojson} />
+      <button onClick={() => console.log(geojson)}>Log Data</button>
+      <SummaryTable geojson={geojson} />
+      <DetailTable geojson={geojson} />
+      <MapView geojson={geojson} />
     </div>
   );
 }

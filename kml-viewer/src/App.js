@@ -1,22 +1,19 @@
-import React from "react";
-import logo from './logo.svg';
-import './App.css';
-import KmlUploader from "./KmlUploader";
-import SummaryTable from "./SummaryTable";
-import DetailTable from "./DetailTable";
-import MapView from "./MapView";
+import React, { useState } from "react";
 
 function App() {
+  const [file, setFile] = useState(null);
+
+  const handleFileUpload = (event) => {
+    setFile(event.target.files[0]);
+  };
+
   return (
     <div>
-      <h2>KML File Viewer</h2>
-      <KmlUploader onKmlParsed={setGeojson} />
-      <button onClick={() => console.log(geojson)}>Log Data</button>
-      <SummaryTable geojson={geojson} />
-      <DetailTable geojson={geojson} />
-      <MapView geojson={geojson} />
+      <h1>KML File Viewer</h1>
+      <input type="file" accept=".kml" onChange={handleFileUpload} />
+      {file && <p>File uploaded: {file.name}</p>}
     </div>
   );
 }
 
-export default App;
+export default App;
